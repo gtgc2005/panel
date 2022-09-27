@@ -1,3 +1,12 @@
+安装说明
+
+- 这个面板不适合一点linux和docker基础都没有的童鞋
+
+安装Docker
+
+- curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+- service docker start  # 如果docker没启动，可以运行这个
+
 docker创建网络
 
 - docker network create cdntip_network
