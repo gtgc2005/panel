@@ -30,10 +30,23 @@ docker创建网络
 添加aws镜像
 - python manage.py aws_update_images
 
+更新程序
+- docker stop panel # 停止当前容器
+- docker rm panel # 删除当前容器
+- docker pull cdntip/panel:latest # 拉取最新的镜像
+- docker run -d -it --network cdntip_network -p 8111:80 --name panel cdntip/panel:latest # 重新创建程序容器
+
+查看日志 
+- docker logs -f panel 
 
 打开浏览器，输入  ip:8111
 
 其它说明
+- 目前支持 aws、azure、linode
 - 后端暂时未上传到github, 但是代码都是未加密的, 在容器中可以看到。
 - docker 暂时只有x86平台(不支持arm平台)
 - 目前版本为预览版，有问题请到群里反馈 @cdntip
+
+广告
+- 虚拟卡       https://cards.cdntip.top/#/cards/list
+- 美国实卡接码  https://cards.cdntip.top/#/sms/us
