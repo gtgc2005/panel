@@ -14,7 +14,7 @@ docker创建网络
 启动mysql容器
 
 - mkdir /data
-- docker run -d -it --network cdntip_network -v /data/mysql:/var/lib/mysql --name panel_mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=panel mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+- docker run -d -it --network cdntip_network --restart=always -v /data/mysql:/var/lib/mysql --name panel_mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=panel mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
 启动 cloudpanel 
 
@@ -42,10 +42,13 @@ docker创建网络
 打开浏览器，输入  ip:8111
 
 其它说明
-- 目前支持 aws、azure、linode
+- 目前支持 aws、azure、linode（1.3版本）
 - 后端暂时未上传到github, 但是代码都是未加密的, 在容器中可以看到。
 - docker 暂时只有x86平台(不支持arm平台)
 - 目前版本为预览版，有问题请到群里反馈 @cdntip
+
+常见问题
+- 重启之后面板打不开， 运行 service docker start && docker start panel_mysql && docker restart panel
 
 广告
 - 虚拟卡       https://cards.cdntip.top/#/cards/list
